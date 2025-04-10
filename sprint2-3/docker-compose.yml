@@ -1,0 +1,6 @@
+services:
+  server:
+    build: .
+    container_name: tools-hub
+    ports:
+      - 8000:8000

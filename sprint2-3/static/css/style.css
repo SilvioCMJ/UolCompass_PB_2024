@@ -1,0 +1,50 @@
+html,
+body,
+footer {
+    height: 100%;
+    /* margin: 0; */
+}
+
+body {
+    background: linear-gradient(#1a1a1a, #000000);
+}
+
+.navbar {
+    background-color: #1a1a1a;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.header-warning {
+    background: linear-gradient(to right, #ffc107, #ff9800) !important;
+}
+
+.home-section {
+    margin-top: 135px;
+}
+
+.card {
+    background-color: #1b1b1b;
+}
+
+.card-text {
+    color: darkgray;
+}
+
+.card-text:hover {
+    color: rgb(182, 182, 182);
+}
+
+.text-link {
+    color: darkgray !important;
+}
+
+.text-link:hover {
+    color: #ffc107 !important;
+}
+
+.card-link:hover {
+    color: #ff8800 !important;
+}

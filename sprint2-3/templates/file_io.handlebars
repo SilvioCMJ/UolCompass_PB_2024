@@ -1,0 +1,29 @@
+<div class="container d-flex flex-column align-items-center">
+    <div class="w-100 d-flex justify-content-center mb-3">
+        <div class="w-100" style="max-width: 500px;">
+            <a href="/" title="Back" class="mb-3 text-decoration-none text-warning fw-bold fs-5">
+                &#10229;
+            </a>
+        </div>
+    </div>
+    <div class="card w-100 h-auto rounded-5 text-white p-3 d-flex flex-column align-items-center"
+        style="max-width: 500px;">
+        <h1 class="text-light fw-bold text-center">Upload File</h1>
+        <form id="uploadForm" enctype="multipart/form-data" class="w-100 d-flex flex-column">
+            <div class="form-group w-100">
+                <input type="file" name="file" class="form-control" required>
+            </div>
+            <p id="upload-success" class="text-success text-center"><a id="file-link" href="#" target=""></a></p>
+            <p id="upload-error" class="text-danger text-center"></p>
+            <div class="formats-list">
+                <h4>Allowed formats</h4>
+                <p class="text-link"><strong>Image:</strong> png, jpeg, jpg, gif, webp</p>
+                <p class="text-link"><strong>Video:</strong> mp4, mov, avi</p>
+                <p class="text-link"><strong>Text:</strong> txt, html, css, js, mjs</p>
+                <p class="text-link"><strong>Compressed:</strong> rar, zip</p>
+                <p class="text-link"><strong>Audio:</strong> mp3</p>
+            </div>
+            <button type="submit" class="btn btn-outline-light mt-3 mb-4 fw-bold">Send</button>
+        </form>
+    </div>
+</div>
