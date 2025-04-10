@@ -1,0 +1,61 @@
+service: vision
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "rekognition:DetectFaces"
+        - "rekognition:DetectLabels"
+      Resource:
+        - "*"  
+    - Effect: Allow
+      Action:
+        - "s3:GetObject"
+      Resource:
+        - "arn:aws:s3:::fotos-grupo5/*" # Alterem para o nome do seu próprio bucket
+    - Effect: Allow
+      Action:
+        - "bedrock:InvokeModel"  # Permissão para invocar o Bedrock
+        - "bedrock:ListModels"   # Permissão para listar modelos disponíveis no Bedrock
+      Resource:
+        - "*"
+functions:
+  health:
+    handler: handler.health
+    events:
+      - httpApi:
+          path: /
+          method: get
+  v1Description:
+    handler: handler.v1_description
+    events:
+      - httpApi:
+          path: /v1
+          method: get
+  v2Description:
+    handler: handler.v2_description
+    events:
+      - httpApi:
+          path: /v2
+          method: get
+  vision:
+    handler: handler_faces.handler_faces
+    events:
+      - http:
+          path: v1/vision
+          method: post
+  vision_v2:
+    handler: handler_pets.handler_pets
+    timeout: 30  # Aumenta o tempo limite para 30 segundos
+    events:
+      - http:
+          path: v2/vision
+          method: post        
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: false   
