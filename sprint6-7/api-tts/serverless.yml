@@ -1,0 +1,68 @@
+service: api-tts
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+  stage: prod
+  environment:
+    BUCKET_NAME: ${env:BUCKET_NAME}
+    AUDIO_S3_DIR: ${env:AUDIO_S3_DIR}
+    DB_TABLE_NAME: ${env:DB_TABLE_NAME}
+    DB_PART_KEY: ${env:DB_PART_KEY}
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "polly:*"
+        - "s3:*"
+        - "s3-object-lambda:*"
+        - "dynamodb:*"
+      Resource: "*"
+
+
+functions:
+  health:
+    handler: handlers.info.health
+    events:
+      - httpApi:
+          path: /
+          method: get
+  v1Description:
+    handler: handlers.info.v1_description
+    events:
+      - httpApi:
+          path: /v1
+          method: get
+  lambda_handler:
+    handler: handlers.tts_handler.lambda_handler
+    timeout: 60
+    events:
+      - httpApi:
+          path: /v1/tts
+          method: post
+  list:
+    handler: aws.dynamodb.list_items_db.list_item_db
+    events:
+      - httpApi:
+          path: /v1/listdb
+          method: get
+  delete:
+    handler: aws.dynamodb.delete_record_db.delete_record
+    events:
+      - httpApi:
+          path: /v1/deletedb/{id}
+          method: delete
+
+custom:
+  pythonRequirements:
+    fileName: ../requirements.txt
+
+  dotenv:
+    path: ../.env
+
+plugins:
+  - serverless-python-requirements
+  - serverless-offline
+  - serverless-dotenv-plugin

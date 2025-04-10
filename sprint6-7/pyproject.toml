@@ -1,0 +1,21 @@
+[tool.taskipy.tasks]
+# Checar as credenciais da AWS
+aws = "python -m api-tts.dev.tasks.check_aws_credentials"
+
+# Configurar a API para inicialização
+config = "task aws && task create-table && task create-bucket && npm install"
+
+# Executar a aplicação localmente
+run = "task aws && cd api-tts && serverless offline"
+
+# Deploy da aplicação na AWS
+deploy = "task aws && cd api-tts && serverless deploy"
+
+# Limpar o cache
+clean = "python -m api-tts.dev.tasks.clean"
+
+# Criar uma tabela no DynamoDB
+create-table = "python -m api-tts.dev.tasks.create_db_table"
+
+# Criar um bucket no S3
+create-bucket = "python -m api-tts.dev.tasks.create_s3_bucket"

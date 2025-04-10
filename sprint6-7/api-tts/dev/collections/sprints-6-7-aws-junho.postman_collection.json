@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "f53f9e63-e399-4705-a8ee-4da3ba0c5263",
+		"name": "sprints-6-7-aws-junho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37031557"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Test Main Get Local",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/v1"
+					},
+					"response": []
+				},
+				{
+					"name": "Test List DB Local",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/v1/listdb"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Main Post Local",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phrase\": \"oi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/v1/tts"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Delete DB Local",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/v1/deletedb/87f633634cc4b02f"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deploy",
+			"item": [
+				{
+					"name": "Test Main Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{endpoint}}/v1"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Main List DB",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{endpoint}}/v1/listdb"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Main Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phrase\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{endpoint}}/v1/tts"
+					},
+					"response": []
+				},
+				{
+					"name": "Test Delete DB",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{endpoint}}/v1/deletedb/87f633634cc4b02f"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "https://rmbshe6lg3.execute-api.us-east-1.amazonaws.com",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,54 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Diretórios de ambiente
+.env
+.venv
+venv
+node_modules/
+__pycache__/
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.swp
+
+# Compilação
+dist/
+build/
+out/
+
+# IDEs
+.vscode/
+.idea/
+
+# Arquivos específicos do Git
+.git/
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Serverless directories
+.serverless
+serverless/
+.serverless_plugins/
+.serverless-debug/
+.serverless/
