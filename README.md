@@ -46,12 +46,12 @@ Este repositório contém os projetos desenvolvidos durante o **Programa de Bols
 ├── UolCompass_PB_2024/
 │   ├── assets/
 │       └── logo-compass.png
-│   ├── sprint-1-pb-aws-junho/
-│   ├── sprints-2-3-pb-aws-junho/
-│   ├── sprints-4-5-pb-aws-junho/
-│   ├── sprints-6-7-pb-aws-junho-grupo-4/
-│   ├── sprint-8-pb-aws-junho/
-│   ├── sprints-9-10-pb-aws-junho-grupo-1/
+│   ├── sprint-1/
+│   ├── sprints-2-3/
+│   ├── sprints-4-5/
+│   ├── sprints-6-7/
+│   ├── sprint-8/
+│   ├── sprints-final/
 │   ├── README.md
 ```
 ---
