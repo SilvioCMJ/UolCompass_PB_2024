@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/detail_institution.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    {% if institution %}
+        <main class="bg-light text-dark">
+            <h2>Detalhes da Instituição</h2>
+            <section class="conteudo-detalhes">
+                <div class="container-instituicao border border-primary rounded p-4" style="background-color: rgba(0, 0, 0, 0);">
+                    <h3 class="text-dark">{{ institution.name }}</h3>
+                    <img src="{{ institution.image }}" alt="Imagem da Instituição" width="500" height="300">
+                    <p class="text-dark"><strong>CNPJ:</strong> {{ institution.cnpj }}</p>
+                    <p class="text-dark"><strong>Email:</strong> {{ institution.email }}</p>
+                    <p class="text-dark"><strong>Telefone:</strong> {{ institution.phone_number }}</p>
+                    <p class="text-dark"><strong>CEP:</strong> {{ institution.cep }}</p>
+                    <p class="text-dark"><strong>Número de Endereço:</strong> {{ institution.addres_number }}</p>
+                    <p class="text-dark"><strong>Sobre:</strong> {{ institution.about }}</p>
+                </div>
+                <a class="btn-voltar" href="{% url 'institutions' %}">Voltar à lista</a>
+            </section>
+        </main>
+    {% else %}
+        <p class="nenhum-resultado text-primary">Nenhuma instituição encontrada.</p>
+    {% endif %}
+{% endblock content %}

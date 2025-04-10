@@ -1,0 +1,32 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Conexão Solidária - Facilitando conexões entre doadores e instituições.">
+        <meta name="keywords" content="solidariedade, doação, instituições, conexão">
+        <meta name="author" content="Conexão Solidária">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <title>Conexão Solidária</title>
+
+        {% block styles %}
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock styles %}
+    </head>
+
+<body class="bg-light text-dark d-flex flex-column min-vh-100">
+    <!-- Header -->
+    {% include 'partials/_header.html' %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %}
+</body>
+</html>

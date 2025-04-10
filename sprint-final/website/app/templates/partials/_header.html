@@ -1,0 +1,18 @@
+{% load static %}
+
+<header class="bg-primary p-3 shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <img src="{% static 'img/logo.png' %}" alt="Logo Solidariedade" class="me-2" style="width: 40px; height: auto;">
+            <h1 class="h3 mb-0 text-light">Conexão Solidária</h1>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link text-light">Home</a></li>
+                <li class="nav-item"><a href="{% url 'terms_of_use' %}" class="nav-link text-light">Termos de Uso</a></li>
+                <li class="nav-item"><a href="{% url 'institutions' %}" class="nav-link text-light">Instituições</a></li>
+                <li class="nav-item"><a href="{% url 'chatbot' %}" class="nav-link text-light">ChatBot</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,92 @@
+app: description
+service: conexao-solidaria
+
+provider:
+  name: aws
+  runtime: python3.9
+
+functions:
+  # Health handler
+  health:
+    handler: api/v1/handlers.health.health
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  # Institutions CRUD handlers
+  create:
+    handler: api/v1/handlers.institution.create
+    events:
+      - httpApi:
+          method: post
+          path: /api/v1/institutions
+
+  list:
+    handler: api/v1/handlers.institution.list_items
+    events:
+      - httpApi:
+          method: get
+          path: /api/v1/institutions
+
+  retrieve:
+    handler: api/v1/handlers.institution.retrieve
+    events:
+      - httpApi:
+          method: get
+          path: /api/v1/institutions/{cnpj}
+
+  update:
+    handler: api/v1/handlers.institution.update
+    events:
+      - httpApi:
+          method: put
+          path: /api/v1/institutions/{cnpj}
+
+  delete:
+    handler: api/v1/handlers.institution.delete
+    events:
+      - httpApi:
+          method: delete
+          path: /api/v1/institutions/{cnpj}
+
+  # Bedrock suggestions handler
+  suggestions:
+    handler: api/v1/handlers.bedrock.suggestions
+    timeout: 45
+    events:
+      - httpApi:
+          method: post
+          path: /api/v1/institutions/suggestions
+
+  # Rekognition scan handler
+  scan:
+    handler: api/v1/handlers.rekognition.scan
+    events:
+      - httpApi:
+          method: post
+          path: /api/v1/scan
+
+  # Query Institutions handler
+  query:
+    handler: api/v1/handlers.institution.query
+    events:
+      - httpApi:
+          method: get
+          path: /api/v1/institutions/query
+
+plugins:
+  - serverless-offline
+  - serverless-python-requirements
+  - serverless-dotenv-plugin
+
+custom:
+  pythonRequirements:
+      useStaticCache: false
+      useDownloadCache: false
+      pipCmdExtraArgs:
+        - "--platform manylinux2014_x86_64"
+        - "--implementation cp"
+        - "--python-version 3.9"
+        - "--only-binary=:all:"
+        - "--upgrade"

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/institutions.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <h2>Todas as Instituições</h2>
+    <div class="conteiner-formulario">
+        <form method="GET" action="">
+            <input type="text" id="search" name="search" placeholder="Buscar instituição...">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </form>
+    </div>
+    <section class="conteudo-principal">
+        {% if page_object %}
+            {% for institution in page_object %}
+                <div class="container-carro">
+                    <h3 class="institution-title">{{ institution.name }}</h3>
+                    <p>CNPJ: {{ institution.cnpj }}</p>
+                    <p>Email: {{ institution.email }}</p>
+                    <p>Telefone: {{ institution.phone_number }}</p>
+                    <p>CEP: {{ institution.cep }}</p>
+                    <p>Número: {{ institution.address_number }}</p>
+                    <p>Sobre: {{ institution.about }}</p>
+                    <div class="button-container">
+                        <a href="{% url 'institution' cnpj=institution.cnpj %}" class="btn btn-outline-primary">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="nenhum-resultado">Nenhuma instituição encontrada.</p>
+        {% endif %}
+    </section>
+
+    <!-- Pagination -->
+    <nav class="pagination-container">
+        <ul class="pagination justify-content-center">
+            {% if page_object.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_object.previous_page_number }}">&lt;</a>
+                </li>
+            {% endif %}
+
+            {% for num in page_object.paginator.page_range %}
+                <li class="page-item {% if page_object.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endfor %}
+
+            {% if page_object.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_object.next_page_number }}">&gt;</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_object.paginator.num_pages }}">&raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</main>
+{% endblock %}

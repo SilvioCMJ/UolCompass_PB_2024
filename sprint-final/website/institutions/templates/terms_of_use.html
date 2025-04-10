@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/terms_of_use.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<main>
+    <div class="container">
+
+        <h2>Termos de Uso</h2>
+        <p>Bem-vindo(a) ao Conexão Solidária! Ao utilizar nossos serviços, você concorda com os seguintes Termos de Uso.
+        </p>
+
+        <h3>1. Definições</h3>
+        <p><strong>"Plataforma"</strong>: refere-se ao Conexão Solidária, que atua como um intermediário entre doadores
+            e instituições.</p>
+        <p><strong>"Usuário"</strong>: refere-se a qualquer pessoa que utiliza a plataforma para se conectar com
+            instituições, incluindo doadores e representantes das instituições.</p>
+        <p><strong>"Instituição"</strong>: refere-se a qualquer instituição listada em nossa plataforma, que pode se
+            cadastrar para receber doações ou divulgar seus projetos.</p>
+
+        <h3>2. Serviços Oferecidos</h3>
+        <p>O Conexão Solidária oferece um serviço de intermediação entre potenciais doadores e instituições. Não
+            realizamos transações financeiras, nem armazenamos dados pessoais dos usuários. Toda a comunicação entre
+            doadores e instituições é intermediada por nosso chatbot e serviços integrados, sem coleta de informações
+            sensíveis.</p>
+
+        <h3>3. Responsabilidade do Usuário</h3>
+        <p>O usuário é responsável por utilizar a plataforma de maneira ética e não deve fornecer informações falsas ou
+            enganosas durante as interações com as instituições. O Conexão Solidária não se responsabiliza pela
+            veracidade das informações fornecidas pelos usuários ou pelas instituições cadastradas.</p>
+
+        <h3>4. Moderação de Conteúdo</h3>
+        <p>Imagens e descrições enviadas pelas instituições são analisadas por sistemas automatizados, como o Amazon
+            Rekognition e o Amazon Bedrock, para garantir que estejam de acordo com as nossas diretrizes de conteúdo.
+            Conteúdos impróprios ou fraudulentos serão removidos, e as instituições podem ser suspensas caso violem as
+            regras da plataforma.</p>
+
+        <h3>5. Isenção de Responsabilidade</h3>
+        <p>O Conexão Solidária não é responsável por quaisquer transações ou doações feitas diretamente entre os
+            usuários e as instituições. A plataforma apenas facilita a conexão entre as partes. É de responsabilidade do
+            usuário verificar a autenticidade das instituições e decidir se deseja contribuir.</p>
+
+        <h3>6. Alterações nos Termos de Uso</h3>
+        <p>O Conexão Solidária se reserva o direito de modificar os Termos de Uso a qualquer momento, sendo as
+            alterações publicadas nesta página. O uso contínuo da plataforma implica aceitação dos termos atualizados.
+        </p>
+
+        <h3>7. Contato</h3>
+        <p>Em caso de dúvidas sobre os Termos de Uso, entre em contato conosco pelo e-mail:
+            contato@conexaosolidaria.com.</p>
+
+        <h3>Política de Privacidade</h3>
+        <p>A plataforma Conexão Solidária valoriza a privacidade de seus usuários e, por isso, informa que não realiza a
+            coleta de dados pessoais dos doadores que utilizam o serviço. Apenas as informações fornecidas pelas
+            instituições para cadastro são armazenadas, conforme descrito abaixo.</p>
+
+        <h3>1. Coleta de Dados</h3>
+        <p>A única coleta de dados realizada pela plataforma é referente às instituições que se cadastram para divulgar
+            seus projetos. As informações coletadas são:</p>
+        <ul>
+            <li>Nome da instituição</li>
+            <li>CNPJ</li>
+            <li>Email de contato</li>
+            <li>Telefone</li>
+            <li>CEP</li>
+            <li>Descrição das atividades</li>
+        </ul>
+
+        <h3>2. Finalidade do Tratamento de Dados</h3>
+        <p>As informações fornecidas pelas instituições são utilizadas exclusivamente para facilitar a comunicação com
+            os doadores e para a moderação do conteúdo, garantindo que a plataforma permaneça um ambiente seguro e
+            confiável.</p>
+
+        <h3>3. Segurança</h3>
+        <p>Adotamos medidas de segurança adequadas para proteger as informações fornecidas pelas instituições. Não
+            compartilhamos essas informações com terceiros, exceto quando exigido por lei ou para fins de moderação do
+            conteúdo.</p>
+
+        <h3>4. Direitos das Instituições</h3>
+        <p>As instituições cadastradas têm o direito de solicitar a correção ou exclusão de suas informações a qualquer
+            momento. Para exercer esses direitos, as instituições devem entrar em contato pelo e-mail
+            contato@conexaosolidaria.com.</p>
+
+        <h3>5. Alterações na Política de Privacidade</h3>
+        <p>Esta Política de Privacidade pode ser alterada a qualquer momento, e as modificações serão publicadas nesta
+            página. O uso contínuo da plataforma implica a aceitação das políticas atualizadas.</p>
+
+        <p><strong>Última atualização:</strong> 23 de outubro de 2024</p>
+        <p>Em caso de dúvidas, entre em contato conosco pelo e-mail: contato@conexaosolidaria.com.</p>
+    </div>
+    </div>
+</main>
+{% endblock content %}

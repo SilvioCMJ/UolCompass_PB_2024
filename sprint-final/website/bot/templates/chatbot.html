@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-12 col-md-8 col-lg-6 p-4 border rounded shadow bg-light" id="chat-container">
+        <h2 class="text-center mb-3">SoliBot</h2>
+
+        <div class="mb-3 border rounded p-3 bg-white overflow-auto" id="chat-box" style="height: 300px;">
+            <!-- The messages will appear here -->
+        </div>
+
+        <form id="chat-form" class="d-flex mb-2">
+            {% csrf_token %}
+            <input type="text" id="message" class="form-control me-2" placeholder="Digite sua mensagem...">
+            <input type="file" id="image" class="form-control me-2" accept="image/*">
+            <input type="hidden" id="session_id">
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+        </form>
+
+        <div class="d-flex gap-2">
+            <button id="clear-chat" class="btn btn-outline-secondary w-100">Limpar</button>
+        </div>
+    </div>
+</div>
+{% endblock content %}

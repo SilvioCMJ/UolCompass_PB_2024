@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Main Content -->
+<main class="flex-grow-1 py-5">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between bg-white p-4 rounded shadow-sm mb-4">
+            <div class="me-4">
+                <h2 class="text-primary mb-3">Conecte-se e Faça a Diferença</h2>
+                <p class="text-dark">Com o Conexão Solidária, você pode ajudar instituições e fazer parte de uma
+                    comunidade solidária. Contribua e faça a diferença na vida de muitos.</p>
+                <a href="{% url 'institutions' %}" class="btn btn-outline-primary mt-3">Conheça as instituições</a>
+            </div>
+
+            <!-- Home image -->
+            <img src="{% static 'img/home.png' %}" alt="Imagem Conexão Solidária" class="img-fluid"
+                style="width: 350px; height: auto;">
+        </div>
+
+        <div class="institutions-list">
+            {% for institution in page_obj %}
+            <div class="institution-card mb-3 p-3 bg-white rounded shadow-sm">
+                <h3 class="text-primary">{{ institution.name }}</h3>
+                <p>{{ institution.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock content %}
