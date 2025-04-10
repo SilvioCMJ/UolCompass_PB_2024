@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "2d09ee66-5d6d-4cc0-b2a0-f09c0d38e405",
+		"name": "sprints-4-5-pb-aws-junho activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25031222"
+	},
+	"item": [
+		{
+			"name": "inference",
+			"item": [
+				{
+					"name": "inference data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"no_of_adults\": 3,\n    \"no_of_children\": 2,\n    \"no_of_weekend_nights\": 2,\n    \"no_of_week_nights\": 2,\n    \"type_of_meal_plan\": \"Meal Plan 1\",\n    \"required_car_parking_space\": 1,\n    \"room_type_reserved\": \"Room_Type 1\",\n    \"lead_time\": 15,\n    \"arrival_year\": 2023,\n    \"arrival_month\": 10,\n    \"arrival_date\": 23,\n    \"market_segment_type\": \"Aviation\",\n    \"repeated_guest\": 0,\n    \"no_of_previous_bookings_not_canceled\": 2,\n    \"no_of_special_requests\": 1,\n    \"booking_status\": \"Not_Canceled\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://174.129.226.5/api/v1/inference"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

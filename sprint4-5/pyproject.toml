@@ -1,0 +1,7 @@
+[tool.taskipy.tasks]
+run = "uvicorn app.main:app --host 0.0.0.0 --port 3000 --reload"
+test = "pytest --cov=app -vv --cov-report=term-missing"
+post_test = "coverage html"
+test-matching = "pytest ./tests -vv -k"
+
+clean-cache = "python -c \"from dev.tasks.clean import clean_all; clean_all()\""
