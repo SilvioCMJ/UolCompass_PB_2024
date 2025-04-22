@@ -52,7 +52,7 @@ Este repositório contém os projetos desenvolvidos durante o **Programa de Bols
 │   ├── sprints-6-7/
 │   ├── sprint-8/
 │   ├── sprints-final/
-│   ├── README.md
+└── └── README.md
 ```
 ---
 
